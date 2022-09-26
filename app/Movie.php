@@ -12,7 +12,15 @@ class Movie {
     $this->original_title = $original_title;
     $this->original_language = $original_language;
     $this->production_country = $production_country;
-    $this->year = $year;
+    $this->setYear($year);
     $this->running_time = $running_time;
+  }
+
+  public function setYear($year) {
+    if (!is_int($year) && is_numeric($year)) {
+      $this->year = intval($year);
+    } else {
+      $this->year = $year;
+    }
   }
 }
