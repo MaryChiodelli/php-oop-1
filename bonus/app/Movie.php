@@ -1,4 +1,6 @@
 <?php
+include_once __DIR__ . '/Actor.php';
+
 class Movie {
   public $title;
   public $original_title;
@@ -6,7 +8,7 @@ class Movie {
   public $production_country;
   public $year;
   public $running_time;
-  public $actors;
+  public $cast;
 
   function __construct($title, $original_title, $original_language, $production_country, $year, $running_time) {
     $this->title = $title;
@@ -23,5 +25,14 @@ class Movie {
     } else {
       $this->year = $year;
     }
+  }
+
+  public function getCastString() {
+    $str_cast = [];
+    foreach($this->cast as $actor) {
+      $full_name = $actor->name . ' ' . $actor->last_name;
+      $str_cast[] = $full_name;
+    }
+    return implode(', ', $str_cast);
   }
 }
