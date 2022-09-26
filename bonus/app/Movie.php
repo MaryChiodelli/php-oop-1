@@ -6,6 +6,7 @@ class Movie {
   public $production_country;
   public $year;
   public $running_time;
+  public $actors;
 
   function __construct($title, $original_title, $original_language, $production_country, $year, $running_time) {
     $this->title = $title;
